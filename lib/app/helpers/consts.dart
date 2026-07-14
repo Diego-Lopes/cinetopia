@@ -8,3 +8,5 @@ const requestHeader = {
   'accept': 'application/json',
   'Authorization': 'Bearer $apiKey',
 };
+
+const String imageUrlPrefix = "https://image.tmdb.org/t/p/w500";

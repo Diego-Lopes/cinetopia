@@ -16,6 +16,10 @@ class Movie {
     required this.overview,
   });
 
+  String getPosterImage() {
+    return imageUrlPrefix + imageUrl;
+  }
+
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'id': id,
