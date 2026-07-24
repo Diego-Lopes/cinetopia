@@ -1,6 +1,8 @@
 //representação de dados da api
 import 'dart:convert';
 
+import 'package:cinetopia/app/helpers/consts.dart';
+
 class Movie {
   final int id;
   final String title;

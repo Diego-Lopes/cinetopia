@@ -12,12 +12,10 @@ class SearchMovies extends StatefulWidget {
 class _SearchMoviesState extends State<SearchMovies> {
   final SearchMoviesViewmodel viewmodel = SearchMoviesViewmodel();
 
-  TextEditingController textController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: searchPopularMoviesService.getMovies(),
+      future: viewmodel.getPopularMovies(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           return CustomScrollView(
@@ -39,11 +37,6 @@ class _SearchMoviesState extends State<SearchMovies> {
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 32),
                   child: TextField(
-                    controller: textController,
-                    onEditingComplete: () {
-                      FocusScope.of(context).unfocus();
-                      setState(() {});
-                    },
                     decoration: InputDecoration(
                       hintText: "Pesquisar",
                       border: OutlineInputBorder(
@@ -56,9 +49,9 @@ class _SearchMoviesState extends State<SearchMovies> {
               SliverList.builder(
                 itemBuilder: (context, index) => Padding(
                   padding: const EdgeInsets.only(bottom: 32),
-                  child: MovieCard(movie: viewmodel.moviesList[index]),
+                  child: MovieCard(),
                 ),
-                itemCount: viewmodel.moviesList.length,
+                itemCount: 10,
               ),
             ],
           );

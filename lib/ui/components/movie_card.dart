@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
 class MovieCard extends StatelessWidget {
-  final Movie movie;
+  // final Movie movie;
 
-  const MovieCard({super.key, required this.movie});
+  const MovieCard({
+    super.key,
+    // required this.movie
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +18,6 @@ class MovieCard extends StatelessWidget {
           decoration: BoxDecoration(
             color: Color(0xff000000),
             borderRadius: BorderRadius.circular(8),
-            image: DecorationImage(image: Networking(movie.getPosterImage()), fit: BoxFit.cover)
           ),
           margin: EdgeInsets.only(right: 16),
         ),
@@ -26,12 +28,12 @@ class MovieCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(bottom: 6),
               child: Text(
-                movie.title,
+                "Título do filme",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
               ),
             ),
             Text(
-              "Lançamento: ${movie.releaseDate}",
+              "Lançamento: 2014-04-04",
               style: TextStyle(color: Color(0xffa5a5a5)),
             ),
           ],
