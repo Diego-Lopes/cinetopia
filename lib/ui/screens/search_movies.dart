@@ -17,7 +17,7 @@ class _SearchMoviesState extends State<SearchMovies> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: viewmodel.getMovie(textController.text),
+      future: searchPopularMoviesService.getMovies(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           return CustomScrollView(
@@ -56,9 +56,9 @@ class _SearchMoviesState extends State<SearchMovies> {
               SliverList.builder(
                 itemBuilder: (context, index) => Padding(
                   padding: const EdgeInsets.only(bottom: 32),
-                  child: MovieCard(),
+                  child: MovieCard(movie: viewmodel.moviesList[index]),
                 ),
-                itemCount: 10,
+                itemCount: viewmodel.moviesList.length,
               ),
             ],
           );
